@@ -15,60 +15,41 @@ public final class HealthyTwerking extends JavaPlugin implements Listener {
     @Override
     public void onEnable() {
         // Plugin startup logic
-        System.out.println("The program has now started up!!!");
+        System.out.println(ChatColor.YELLOW + "The program has now started up!!!");
+        System.out.println(ChatColor.GREEN + "Thank you for using OrganizedTeleportation by: Infiware");
+        System.out.println(ChatColor.GREEN + "Please give a rating on spigotmc.org if you enjoy this plugin");
         getServer().getPluginManager().registerEvents(this,this);
     }
 
     // Best plugin below
 
-    @EventHandler
-    public void onPlayerDeath(PlayerDeathEvent event){
-        Player player = event.getEntity().getPlayer();
-        player.sendMessage(ChatColor.RED + "" + ChatColor.BOLD + "FATALITY");
-    }
-
-    double twerkHealth = 1;
-
+    double twerkHealth = 1.0;
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if(command.getName().equals("extremetwerk")){
-            if (sender instanceof Player){
-                Player player = (Player) sender;
-                player.sendMessage(ChatColor.DARK_GREEN + "Shifting now gives " + ChatColor.RED + "10.0 HP");
-                twerkHealth = 10.0;
 
-            }
-        }
-        if(command.getName().equals("normaltwerk")){
-            if (sender instanceof Player){
-                Player player = (Player) sender;
-                player.sendMessage(ChatColor.DARK_GREEN + "Shifting now gives " + ChatColor.RED + "1.0 HP");
-                twerkHealth = 1.0;
+        Player player = (Player) sender;
 
-            }
-        }
-        if(command.getName().equals("supertwerk")){
-            if (sender instanceof Player){
-                Player player = (Player) sender;
-                player.sendMessage(ChatColor.DARK_GREEN + "Shifting now gives " + ChatColor.RED + "2.5 HP");
-                twerkHealth = 2.5;
 
-            }
-        }
-        if(command.getName().equals("sadtwerk")){
-            if (sender instanceof Player){
-                Player player = (Player) sender;
-                player.sendMessage(ChatColor.DARK_GREEN + "Shifting now gives " + ChatColor.RED + "0.5 HP");
-                twerkHealth = 0.5;
-
+        if(command.getName().equalsIgnoreCase("twerkHealth")) {
+            if (sender instanceof Player) {
+                if (args.length > 0) {
+                    try {
+                        twerkHealth = Double.parseDouble(args[0]);
+                        player.sendMessage(ChatColor.DARK_GREEN + "Shifting now gives " + ChatColor.RED + twerkHealth + " HP");
+                    } catch (IllegalArgumentException e) {
+                        player.sendMessage(ChatColor.RED + "You must give a double as an argument");
+                        player.sendMessage(ChatColor.RED + "Ex: 2.0, 0.1, 4.20 & etc.");
+                    }
+                } else {
+                    player.sendMessage(ChatColor.RED + "You must give a double as an argument");
+                    player.sendMessage(ChatColor.RED + "Ex: 2.0, 0.1, 4.20 & etc.");
+                }
             }
         }
         if(command.getName().equals("notwerk")){
             if (sender instanceof Player){
-                Player player = (Player) sender;
-                player.sendMessage(ChatColor.DARK_GREEN + "Shifting now gives " + ChatColor.RED + "0.0 HP");
-                twerkHealth = 0.0;
+                player.sendMessage(ChatColor.DARK_GREEN + "Shift Healing is now Disabled");
 
             }
         }
