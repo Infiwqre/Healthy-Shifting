@@ -1,5 +1,5 @@
 name: HealthyTwerking
-version: ${project.version}
+version: 0.3
 main: me.infiware.healthytwerking.HealthyTwerking
 api-version: 1.16
 authors: [ Infiware ]
@@ -8,6 +8,6 @@ commands:
   twerkHealth:
     description: changes value of heal when shifting by the amount decided by the player
     usage: /<command> <double>
-  notwerk:
+  noTwerk:
     description: disables twerk healing
     usage: /<command>
