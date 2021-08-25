@@ -1,5 +1,5 @@
 name: HealthyTwerking
-version: 0.3
+version: 0.4
 main: me.infiware.healthytwerking.HealthyTwerking
 api-version: 1.16
 authors: [ Infiware ]
@@ -11,3 +11,6 @@ commands:
   noTwerk:
     description: disables twerk healing
     usage: /<command>
+  twerkDelay:
+    description: changes time of delay of times shifted to heal
+    usage: /<command> <double>
