@@ -6,7 +6,7 @@
 
     <groupId>me.Infiware</groupId>
     <artifactId>HealthyTwerking</artifactId>
-    <version>0.3</version>
+    <version>2.0</version>
     <packaging>jar</packaging>
 
     <name>HealthyTwerking</name>
